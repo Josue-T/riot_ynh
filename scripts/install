@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Import common cmd
+source ./_common.sh
+
+# Init script
+init_script
+
+# Retrieve arguments
+domain=$YNH_APP_ARG_DOMAIN
+path=$YNH_APP_ARG_PATH
+is_public=$YNH_APP_ARG_IS_PUBLIC
+default_home_server=$YNH_APP_ARG_DEFAULT_HOME_SERVER
+
+CHECK_PATH	# Vérifie et corrige la syntaxe du path.
+CHECK_DOMAINPATH	# Vérifie la disponibilité du path et du domaine.
+CHECK_FINALPATH	# Vérifie que le dossier de destination n'est pas déjà utilisé.
+
+# Enregistre les infos dans la config YunoHost
+ynh_app_setting_set $app domain $domain
+ynh_app_setting_set $app path $path
+ynh_app_setting_set $app is_public $is_public
+ynh_app_setting_set $app default_home_server $default_home_server
+
+# Créer le repertoire de destination et stocke son emplacement.
+sudo mkdir "$final_path"
+ynh_app_setting_set $app final_path $final_path
+
+# Get source and install in source dir
+get_source
+
+# Et copie le fichier de config nginx
+sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
+
+# Modifie les variables dans le fichier de configuration nginx
+sudo sed -i "s@__PATH__@$path@g" /etc/nginx/conf.d/$domain.d/$app.conf
+sudo sed -i "s@__FINALPATH__@$final_path@g" /etc/nginx/conf.d/$domain.d/$app.conf
+
+# Update Riot config
+sudo cp ../conf/config.json $final_path/config.json
+sudo sed -i "s@__DEFAULT_SERVER__@$default_home_server@g" $final_path/config.json
+
+if [ "$is_public" = "0" ];
+then	# Retire l'accès public
+	ynh_app_setting_delete $app skipped_uris
+else
+    ynh_app_setting_set $app skipped_uris "/"
+fi
+
+# Recharge la configuration Nginx
+sudo service nginx reload
+# Régénère la configuration de SSOwat
+sudo yunohost app ssowatconf

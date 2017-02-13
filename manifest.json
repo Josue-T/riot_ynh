@@ -1,0 +1,64 @@
+{
+	"name": "Riot",
+	"id": "riot",
+	"packaging_format": 1,
+	"requirements": {
+		"yunohost": ">= 2.4"
+	},
+	"description": {
+		"en": "A web client for matrix",
+		"fr": "Un client web pour matrix"
+	},
+	"version": "1.0",
+	"url": "http://www.site",
+	"license": "free",
+	"maintainer": {
+		"name": "Josué Tille",
+		"email": "josue@tille.ch"
+	},
+	"multi_instance": true,
+	"services": [
+		"nginx"
+	],
+	"arguments": {
+		"install" : [
+			{
+				"name": "domain",
+				"type": "domain",
+                                "ask": {
+					"en": "Choose a domain for Riot",
+					"fr": "Choisissez un domaine pour Riot"
+				},
+				"example": "domain.org"
+			},
+			{
+				"name": "path",
+				"type": "path",
+				"ask": {
+					"en": "Choose a path for Riot",
+					"fr": "Choisissez un chemin pour Riot"
+				},
+				"example": "/riot",
+				"default": "/riot"
+			},
+			{
+				"name": "default_home_server",
+				"ask": {
+					"en": "Chose a default home server",
+					"fr": "Choisissez un serveur par défault"
+				},
+				"example": "my-own-homeserver.tld",
+				"default": "matrix.org"
+			},
+                        {
+                                "name": "is_public",
+                                "type": "boolean",
+                                "ask": {
+                                        "en": "Is it a public server ?",
+                                        "fr": "Est-ce un serveur publique ?"
+                                },
+                                "default": "0"
+                        }
+		]
+	}
+}
