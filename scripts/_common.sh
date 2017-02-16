@@ -5,7 +5,8 @@ md5sum="9207037616522dd12ba5c2425eb05331"
 verctor_version="0.9.7"
 
 init_script() {
-    TRAP_ON	# Active trap pour arrêter le script si une erreur est détectée.
+    # Exit on command errors and treat unset variables as an error
+    set -eu
 
     # Source YunoHost helpers
     source /usr/share/yunohost/helpers
@@ -34,31 +35,6 @@ CHECK_VAR () {	# Vérifie que la variable n'est pas vide.
 # $1 = Variable à vérifier
 # $2 = Texte à afficher en cas d'erreur
 	test -n "$1" || (echo "$2" >&2 && false)
-}
-
-EXIT_PROPERLY () {	# Provoque l'arrêt du script en cas d'erreur. Et nettoye les résidus.
-	exit_code=$?
-	if [ "$exit_code" -eq 0 ]; then
-			exit 0	# Quitte sans erreur si le script se termine correctement.
-	fi
-	trap '' EXIT
-	set +eu
-	echo -e "\e[91m \e[1m"	# Shell in light red bold
-	echo -e "!!\n  $app install's script has encountered an error. Installation was cancelled.\n!!" >&2
-
-	if type -t CLEAN_SETUP > /dev/null; then	# Vérifie l'existance de la fonction avant de l'exécuter.
-		CLEAN_SETUP	# Appel la fonction de nettoyage spécifique du script install.
-	fi
-
-	# Compense le bug de ssowat qui ne supprime pas l'entrée de l'app en cas d'erreur d'installation.
-	sudo sed -i "\@\"$domain$path/\":@d" /etc/ssowat/conf.json
-
-	ynh_die
-}
-
-TRAP_ON () {	# Activate signal capture
-	set -eu	# Exit if a command fail, and if a variable is used unset.
-	trap EXIT_PROPERLY EXIT	# Capturing exit signals on shell script
 }
 
 # Ignore the yunohost-cli log to prevent errors with conditionals commands
@@ -102,20 +78,6 @@ CHECK_FINALPATH () {	# Vérifie que le dossier de destination n'est pas déjà u
 	fi
 }
 
-STORE_MD5_CONFIG () {	# Enregistre la somme de contrôle du fichier de config
-# $1 = Nom du fichier de conf pour le stockage dans settings.yml
-# $2 = Nom complet et chemin du fichier de conf.
-	ynh_app_setting_set $app $1_file_md5 $(sudo md5sum "$2" | cut -d' ' -f1)
-}
-
-CHECK_MD5_CONFIG () {	# Créé un backup du fichier de config si il a été modifié.
-# $1 = Nom du fichier de conf pour le stockage dans settings.yml
-# $2 = Nom complet et chemin du fichier de conf.
-	if [ "$(ynh_app_setting_get $app $1_file_md5)" != $(sudo md5sum "$2" | cut -d' ' -f1) ]; then
-		sudo cp -a "$2" "$2.backup.$(date '+%d.%m.%y_%Hh%M,%Ss')"	# Si le fichier de config a été modifié, créer un backup.
-	fi
-}
-
 FIND_PORT () {	# Cherche un port libre.
 # $1 = Numéro de port pour débuter la recherche.
 	port=$1
@@ -125,7 +87,6 @@ FIND_PORT () {	# Cherche un port libre.
 	CHECK_VAR "$port" "port empty"
 }
 
-
 ### REMOVE SCRIPT
 
 REMOVE_NGINX_CONF () {	# Suppression de la configuration nginx
@@ -133,25 +94,6 @@ REMOVE_NGINX_CONF () {	# Suppression de la configuration nginx
 		echo "Delete nginx config"
 		sudo rm "/etc/nginx/conf.d/$domain.d/$app.conf"
 		sudo service nginx reload
-	fi
-}
-
-REMOVE_FPM_CONF () {	# Suppression de la configuration du pool php-fpm
-	if [ -e "/etc/php5/fpm/pool.d/$app.conf" ]; then	# Delete fpm config
-		echo "Delete fpm config"
-		sudo rm "/etc/php5/fpm/pool.d/$app.conf"
-	fi
-	if [ -e "/etc/php5/fpm/conf.d/20-$app.ini" ]; then	# Delete php config
-		echo "Delete php config"
-		sudo rm "/etc/php5/fpm/conf.d/20-$app.ini"
-	fi
-	sudo service php5-fpm reload
-}
-
-REMOVE_LOGROTATE_CONF () {	# Suppression de la configuration de logrotate
-	if [ -e "/etc/logrotate.d/$app" ]; then
-		echo "Delete logrotate config"
-		sudo rm "/etc/logrotate.d/$app"
 	fi
 }
 
@@ -181,22 +123,4 @@ SECURE_REMOVE () {      # Suppression de dossier avec vérification des variable
 		echo "No detected variable." >&2
 		return 1
 	fi
-}
-
-REMOVE_BDD () {	# Suppression de la base de donnée et de l'utilisateur associé.
-# $1 = Nom de la base de donnée
-	# Utilise '$app' comme nom d'utilisateur et de base de donnée
-	db_user=$1
-	if mysqlshow -u root -p$(sudo cat $MYSQL_ROOT_PWD_FILE) | grep -q "^| $db_user"; then
-		echo "Delete db"
-		ynh_mysql_drop_db $db_user
-		ynh_mysql_drop_user $db_user
-	fi
-}
-
-REMOVE_SYS_USER () {   # Supprime l'utilisateur système dédié à l'app
-    if ynh_system_user_exists "$app"	# Test l'existence de l'utilisateur
-    then
-    	sudo userdel $app
-    fi
 }
