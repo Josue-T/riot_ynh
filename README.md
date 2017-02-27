@@ -1,6 +1,8 @@
 Riot For yunohost
 ==================
 
+Yunohost chattroom with matrix : [https://riot.im/app/#/room/#yunohost:matrix.org](https://riot.im/app/#/room/#yunohost:matrix.org)
+
 [Yunohost project](https://yunohost.org/#/)
 
 It's a webclient for matrix. For a matrix server you can install synapse on your server : https://github.com/YunoHost-Apps/synapse_ynh

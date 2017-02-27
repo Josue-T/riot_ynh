@@ -65,10 +65,6 @@ CHECK_PATH () {	# Vérifie la présence du / en début de path. Et son absence �
 	fi
 }
 
-CHECK_DOMAINPATH () {	# Vérifie la disponibilité du path et du domaine.
-	sudo yunohost app checkurl $domain$path -a $app
-}
-
 CHECK_FINALPATH () {	# Vérifie que le dossier de destination n'est pas déjà utilisé.
 	final_path=/var/www/$app
 	if [ -e "$final_path" ]
