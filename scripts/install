@@ -13,8 +13,11 @@ is_public=$YNH_APP_ARG_IS_PUBLIC
 default_home_server=$YNH_APP_ARG_DEFAULT_HOME_SERVER
 
 CHECK_PATH	# Vérifie et corrige la syntaxe du path.
-CHECK_DOMAINPATH	# Vérifie la disponibilité du path et du domaine.
 CHECK_FINALPATH	# Vérifie que le dossier de destination n'est pas déjà utilisé.
+
+# Check domain/path availability
+sudo yunohost app checkurl "${domain}${path}" -a "$app" \
+    || ynh_die "Path not available: ${domain}${path}"
 
 # Enregistre les infos dans la config YunoHost
 ynh_app_setting_set $app domain $domain
