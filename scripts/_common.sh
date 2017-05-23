@@ -18,14 +18,14 @@ init_script() {
 
 get_source() {
 
-    wget -q -O '/tmp/vector.tar.gz' "https://github.com/vector-im/riot-web/releases/download/v${verctor_version}/vector-v${verctor_version}.tar.gz"
+    wget -q -O '/tmp/riot.tar.gz' "https://github.com/vector-im/riot-web/releases/download/v${verctor_version}/riot-v${verctor_version}.tar.gz"
 
-    if [[ ! -e '/tmp/vector.tar.gz' ]] || [[ $(md5sum '/tmp/vector.tar.gz' | cut -d' ' -f1) != $md5sum ]]
+    if [[ ! -e '/tmp/riot.tar.gz' ]] || [[ $(md5sum '/tmp/riot.tar.gz' | cut -d' ' -f1) != $md5sum ]]
     then
         ynh_die "Error : can't get Riot source"
     fi
-    tar xzf '/tmp/vector.tar.gz'
-    sudo cp -r vector-v${verctor_version}/. $final_path/
+    tar xzf '/tmp/riot.tar.gz'
+    sudo cp -r riot-v${verctor_version}/. $final_path/
     sudo chown www-data -R $final_path
     sudo chmod 740 -R $final_path
 }
