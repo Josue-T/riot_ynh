@@ -1,13 +1,8 @@
 #!/bin/bash
 
 ## Adapt md5sum while you update app
-<<<<<<< HEAD
 md5sum="c4497b86b75d283ce978f07d5c6b2b0e"
 verctor_version="0.9.10"
-=======
-md5sum="f87717d87099267295081895d968e0c2"
-verctor_version="0.9.9"
->>>>>>> upstream/master
 
 init_script() {
     # Exit on command errors and treat unset variables as an error
