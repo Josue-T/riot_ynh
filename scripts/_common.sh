@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## Adapt md5sum while you update app
-md5sum="f87717d87099267295081895d968e0c2"
-verctor_version="0.9.9"
+md5sum="c4497b86b75d283ce978f07d5c6b2b0e"
+verctor_version="0.9.10"
 
 init_script() {
     # Exit on command errors and treat unset variables as an error
@@ -18,14 +18,14 @@ init_script() {
 
 get_source() {
 
-    wget -q -O '/tmp/vector.tar.gz' "https://github.com/vector-im/riot-web/releases/download/v${verctor_version}/vector-v${verctor_version}.tar.gz"
+    wget -q -O '/tmp/riot.tar.gz' "https://github.com/vector-im/riot-web/releases/download/v${verctor_version}/riot-v${verctor_version}.tar.gz"
 
-    if [[ ! -e '/tmp/vector.tar.gz' ]] || [[ $(md5sum '/tmp/vector.tar.gz' | cut -d' ' -f1) != $md5sum ]]
+    if [[ ! -e '/tmp/riot.tar.gz' ]] || [[ $(md5sum '/tmp/riot.tar.gz' | cut -d' ' -f1) != $md5sum ]]
     then
         ynh_die "Error : can't get Riot source"
     fi
-    tar xzf '/tmp/vector.tar.gz'
-    sudo cp -r vector-v${verctor_version}/. $final_path/
+    tar xzf '/tmp/riot.tar.gz'
+    sudo cp -r riot-v${verctor_version}/. $final_path/
     sudo chown www-data -R $final_path
     sudo chmod 740 -R $final_path
 }
