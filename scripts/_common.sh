@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## Adapt md5sum while you update app
-md5sum="453838488493272f05cfe2f2d54550e9"
-riot_version="0.10.2"
+md5sum="08dbbddd32fd031bd120b19200ca32c0"
+riot_version="0.11.1"
 
 init_script() {
     # Exit on command errors and treat unset variables as an error
