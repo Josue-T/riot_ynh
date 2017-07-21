@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Source YunoHost helpers
+source /usr/share/yunohost/helpers
+
+# Stop script if errors
+ynh_abort_if_errors
+
+# Import common cmd
+source ../settings/scripts/_common.sh
+
+# Retrieve arguments
+domain=$(ynh_app_setting_get $app domain)
+
+# Copy Nginx config
+ynh_backup "/etc/nginx/conf.d/${domain}.d/${app}.conf" "nginx.conf"
+
+# Backup riot files
+ynh_backup "/var/www/$app"
+

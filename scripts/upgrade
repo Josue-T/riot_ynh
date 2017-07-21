@@ -1,34 +1,31 @@
 #!/bin/bash
 
+# Source YunoHost helpers
+source /usr/share/yunohost/helpers
+
+# Stop script if errors
+ynh_abort_if_errors
+
 # Import common cmd
 source ./_common.sh
 
-# Init script
-init_script
-
+# Retrieve arguments
 domain=$(ynh_app_setting_get $app domain)
-path=$(ynh_app_setting_get $app path)
+path=$(ynh_normalize_url_path $(ynh_app_setting_get $app path))
 is_public=$(ynh_app_setting_get $app is_public)
 final_path=$(ynh_app_setting_get $app final_path)
 default_home_server=$(ynh_app_setting_get $app default_home_server)
 
-CHECK_PATH	# Vérifie et corrige la syntaxe du path.
-
 # Get source and install in source dir
-get_source
+ynh_setup_source $final_path/
+chown www-data -R $final_path
+chmod 740 -R $final_path
 
-# Et copie le fichier de config nginx
-sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/$app.conf
-
-# Modifie les variables dans le fichier de configuration nginx
-sudo sed -i "s@__PATH__@$path@g" /etc/nginx/conf.d/$domain.d/$app.conf
-sudo sed -i "s@__FINALPATH__@$final_path@g" /etc/nginx/conf.d/$domain.d/$app.conf
+# Update nginx config
+config_nginx
 
 # Update Riot config
-sudo cp ../conf/config.json $final_path/config.json
-sudo sed -i "s@__DEFAULT_SERVER__@$default_home_server@g" $final_path/config.json
+config_riot
 
 # Recharge la configuration Nginx
-sudo service nginx reload
-# Régénère la configuration de SSOwat
-sudo yunohost app ssowatconf
+systemctl reload nginx.service

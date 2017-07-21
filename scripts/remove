@@ -1,20 +1,20 @@
 #!/bin/bash
 
+# Source YunoHost helpers
+source /usr/share/yunohost/helpers
+
+# Stop script if errors
+set -u
+
 # Import common cmd
 source ./_common.sh
 
-# Init script
-init_script
-
+# Retrieve arguments
 domain=$(ynh_app_setting_get $app domain)
-port=$(ynh_app_setting_get $app port)
 
-SECURE_REMOVE '/var/www/$app'	# Suppression du dossier de l'application
+ynh_secure_remove "/var/www/$app"
 
-REMOVE_NGINX_CONF	# Suppression de la configuration nginx
+# Suppression de la configuration nginx
+ynh_secure_remove "/etc/nginx/conf.d/$domain.d/$app.conf"
+systemctl reload nginx.service
 
-# Suppression d'un dossier
-SECURE_REMOVE '/etc/$app/'
-
-# Régénère la configuration de SSOwat
-sudo yunohost app ssowatconf

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Source YunoHost helpers
+source /usr/share/yunohost/helpers
+
+# Stop script if errors
+ynh_abort_if_errors
+
+# Import common cmd
+source ../settings/scripts/_common.sh
+
+# Retrieve arguments
+domain=$(ynh_app_setting_get $app domain)
+path=$(ynh_app_setting_get $app path)
+
+# Check domain/path availability
+ynh_webpath_available $domain $path || ynh_die "$domain/$path is not available, please use an other domain or path."
+
+# Restore all config and data
+ynh_restore
+
+

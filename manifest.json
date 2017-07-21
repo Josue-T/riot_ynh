@@ -3,14 +3,14 @@
 	"id": "riot",
 	"packaging_format": 1,
 	"requirements": {
-		"yunohost": ">= 2.4"
+		"yunohost": ">= 2.6.4"
 	},
 	"description": {
 		"en": "A web client for matrix",
 		"fr": "Un client web pour matrix"
 	},
-	"version": "1.0",
-	"url": "http://www.site",
+	"version": "11.4",
+	"url": "https://riot.im",
 	"license": "free",
 	"maintainer": {
 		"name": "Josué Tille",
@@ -50,15 +50,15 @@
 				"example": "my-own-homeserver.tld",
 				"default": "matrix.org"
 			},
-                        {
-                                "name": "is_public",
-                                "type": "boolean",
-                                "ask": {
-                                        "en": "Is it a public server ?",
-                                        "fr": "Est-ce un serveur publique ?"
-                                },
-                                "default": "0"
-                        }
+			{
+				"name": "is_public",
+				"type": "boolean",
+				"ask": {
+					"en": "Is it a public server ?",
+					"fr": "Est-ce un serveur publique ?"
+			},
+				"default": "0"
+			}
 		]
 	}
 }
