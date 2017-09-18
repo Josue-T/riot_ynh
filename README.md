@@ -23,3 +23,12 @@ access to Riot (or other apps) due to sharing the same domain.
 We have put some coarse mitigations into place to try to protect against this
 situation, but it's still not good practice to do it in the first place.  See
 https://github.com/vector-im/riot-web/issues/1977 for more details.
+
+Todo for official App
+======================
+
+- SSO auth see issue : https://github.com/vector-im/riot-web/issues/3830
+- Improve documentation
+
+
+
