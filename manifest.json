@@ -11,7 +11,7 @@
 	},
 	"version": "11.4",
 	"url": "https://riot.im",
-	"license": "free",
+	"license": "Apache-2.0",
 	"maintainer": {
 		"name": "Josué Tille",
 		"email": "josue@tille.ch"
