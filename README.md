@@ -12,7 +12,7 @@ sudo yunohost app upgrade riot -u https://github.com/YunoHost-Apps/riot_ynh
 
 
 Important Security Note
-=======================
+-----------------------
 
 We do not recommend running Riot from the same domain name as your Matrix
 homeserver (synapse).  The reason is the risk of XSS (cross-site-scripting)
@@ -24,8 +24,13 @@ We have put some coarse mitigations into place to try to protect against this
 situation, but it's still not good practice to do it in the first place.  See
 https://github.com/vector-im/riot-web/issues/1977 for more details.
 
+License
+-------
+
+Riot-Web is published under the Apache License : https://github.com/vector-im/riot-web/blob/master/LICENSE
+
 Todo for official App
-======================
+---------------------
 
 - SSO auth see issue : https://github.com/vector-im/riot-web/issues/3830
 - Improve documentation
