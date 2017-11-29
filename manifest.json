@@ -9,7 +9,7 @@
 		"en": "A web client for matrix",
 		"fr": "Un client web pour matrix"
 	},
-	"version": "0.13.1",
+	"version": "0.13.2",
 	"url": "https://riot.im",
 	"license": "Apache-2.0",
 	"maintainer": {
