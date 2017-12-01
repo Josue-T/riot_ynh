@@ -11,9 +11,16 @@ source ./_common.sh
 
 # Retrive arguments
 old_domain=$YNH_APP_OLD_DOMAIN
-old_path=$(ynh_normalize_url_path $YNH_APP_OLD_PATH)
+old_path=$YNH_APP_OLD_PATH
+
 new_domain=$YNH_APP_NEW_DOMAIN
-new_path=$(ynh_normalize_url_path $YNH_APP_NEW_PATH)
+new_path=$YNH_APP_NEW_PATH
+
+test -n "$old_path" || old_path="/"
+test -n "$new_path" || new_path="/"
+
+new_path=$(ynh_normalize_url_path $new_path)
+old_path=$(ynh_normalize_url_path $old_path)
 
 # CHECK WHICH PARTS SHOULD BE CHANGED
 change_domain=0
