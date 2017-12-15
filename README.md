@@ -1,6 +1,10 @@
 Riot For yunohost
 ==================
 
+[![Integration level](https://dash.yunohost.org/integration/riot.svg)](https://ci-apps.yunohost.org/jenkins/job/riot%20%28Community%29/lastBuild/consoleFull) 
+
+[![Install Riot with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=riot)
+
 Yunohost chattroom with matrix : [https://riot.im/app/#/room/#yunohost:matrix.org](https://riot.im/app/#/room/#yunohost:matrix.org)
 
 [Yunohost project](https://yunohost.org/#/)
