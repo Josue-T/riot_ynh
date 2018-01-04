@@ -3,13 +3,13 @@
 	"id": "riot",
 	"packaging_format": 1,
 	"requirements": {
-		"yunohost": ">= 2.6.4"
+		"yunohost": ">= 2.7.5"
 	},
 	"description": {
 		"en": "A web client for matrix",
 		"fr": "Un client web pour matrix"
 	},
-	"version": "0.13.3",
+	"version": "0.13.4",
 	"url": "https://riot.im",
 	"license": "Apache-2.0",
 	"maintainer": {
@@ -57,7 +57,7 @@
 					"en": "Is it a public server ?",
 					"fr": "Est-ce un serveur publique ?"
 			},
-				"default": "0"
+				"default": 0
 			}
 		]
 	}

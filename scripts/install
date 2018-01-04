@@ -11,13 +11,13 @@ source ./_common.sh
 
 # Retrieve arguments
 domain=$YNH_APP_ARG_DOMAIN
-path=$(ynh_normalize_url_path $YNH_APP_ARG_PATH)
+path_url=$(ynh_normalize_url_path $YNH_APP_ARG_PATH)
 is_public=$YNH_APP_ARG_IS_PUBLIC
 default_home_server=$YNH_APP_ARG_DEFAULT_HOME_SERVER
 
 # Check domain/path availability
-test $(ynh_webpath_available $domain $path) == 'True' || ynh_die "$domain$path is not available, please use an other domain or path."
-ynh_webpath_register $app $domain $path
+test $(ynh_webpath_available $domain $path_url) == 'True' || ynh_die "$domain$path_url is not available, please use an other domain or path."
+ynh_webpath_register $app $domain $path_url
 
 # Check Final Path availability
 test ! -e "$final_path" || ynh_die "This path already contains a folder"

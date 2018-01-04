@@ -11,7 +11,7 @@ source ./_common.sh
 
 # Retrieve arguments
 domain=$(ynh_app_setting_get $app domain)
-path=$(ynh_normalize_url_path $(ynh_app_setting_get $app path))
+path_url=$(ynh_normalize_url_path $(ynh_app_setting_get $app path))
 is_public=$(ynh_app_setting_get $app is_public)
 final_path=$(ynh_app_setting_get $app final_path)
 default_home_server=$(ynh_app_setting_get $app default_home_server)
