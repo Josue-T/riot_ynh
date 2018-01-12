@@ -11,8 +11,24 @@ Yunohost chattroom with matrix : [https://riot.im/app/#/room/#yunohost:matrix.or
 
 It's a webclient for matrix. For a matrix server you can install synapse on your server : https://github.com/YunoHost-Apps/synapse_ynh
 
-**Mise à jour du package:**
-sudo yunohost app upgrade riot -u https://github.com/YunoHost-Apps/riot_ynh
+Install
+-------
+
+From command line:
+
+`sudo yunohost app install -l riot https://github.com/YunoHost-Apps/riot_ynh`
+
+Upgrade
+-------
+
+From command line:
+
+`sudo yunohost app upgrade riot -u https://github.com/YunoHost-Apps/riot_ynh`
+
+Issue
+-----
+
+Any issue is welcome here : https://github.com/YunoHost-Apps/riot_ynh/issues
 
 
 Important Security Note
