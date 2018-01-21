@@ -15,29 +15,57 @@ config_nginx() {
 config_riot() {
     cp ../conf/config.json $final_path/config.json
     ynh_replace_string __DEFAULT_SERVER__ $default_home_server $final_path/config.json
-    chown www-data -R $final_path/config.json
-    chmod 640 -R $final_path/config.json
 }
 
-# Substitute/replace a string (or expression) by another in a file
-#
-# usage: ynh_replace_string match_string replace_string target_file
-# | arg: match_string - String to be searched and replaced in the file
-# | arg: replace_string - String that will replace matches
-# | arg: target_file - File in which the string will be replaced.
-#
-# As this helper is based on sed command, regular expressions and
-# references to sub-expressions can be used
-# (see sed manual page for more information)
-ynh_replace_string () {
-	local delimit=@
-	local match_string=$1
-	local replace_string=$2
-	local workfile=$3
+install_source() {
+    ynh_setup_source $final_path/
+    
+    # if the default homeserver is external we dont add the sso support
+    if [[ $(yunohost domain list | grep "$default_home_server") ]]
+    then
+        # We copy the certificate if it is a self signed certificate
+        cert_path=$(readlink -f /etc/yunohost/certs/$default_home_server/crt.pem)
+        test -n $cert_path && cp "$cert_path" $final_path/crt.pem
+        chmod 600 $final_path/crt.pem
+        chown $app:root $final_path/crt.pem
+        
+        cp ../sources/get_user_token.php $final_path/
+        
+        # Patch the riot bundle.js file
+        # This file is a minified javascript so it's not possible to use the standrad patch because everything is only on one line.
+        # The other problem is that some variable a renamed to be more short.
+        # Here this variable is named unamed_object. By the regular expression we will be able to get this name and to put in the new code.
+        
+        # To make the code more readable (for debug), we can use the tool js-beautify available here : https://github.com/beautify-web/js-beautify
+        
+        # We escape all char witch could be a problem in regular expression.
+        escape_string() {
+            a=${a//'\'/'\\'}
+            a=${a//'&'/"\&"}
+            a=${a//'('/'\('}
+            a=${a//')'/'\)'}
+            a=${a//'{'/'\{'}
+            a=${a//'}'/'\}'}
+            a=${a//'.'/'\.'}
+            a=${a//'*'/'\*'}
+        }
+        
+        # We get the part witch we need to patch and create a regular expression
+        a='case"start_login":this.setStateForNewView({view:unnamed_object.LOGIN}),this.notifyNewScreen("login");break;'
+        escape_string
+        match_string="${a//'unnamed_object'/'(\w+)'}"
 
-	# Escape the delimiter if it's in the string.
-	match_string=${match_string//${delimit}/"\\${delimit}"}
-	replace_string=${replace_string//${delimit}/"\\${delimit}"}
+        # We create a regular expression from the patch file
+        a="$(cat ../sources/bundle_patch.js)"
+        escape_string
+        a="${a//'unnamed_object'/'\1'}"
+        a="$(echo "$a" | sed -r "s|//.*||g")"
+        replace_string="$(echo $a)"
+        sed --in-place -r "s|$match_string|$replace_string|g" $final_path/bundles/*/bundle.js
+    fi
+}
 
-	sudo sed --in-place "s${delimit}${match_string}${delimit}${replace_string}${delimit}g" "$workfile"
+set_permission() {
+    chown www-data:$app -R $final_path
+    chmod u=rX,g=rX,o= -R $final_path
 }

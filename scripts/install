@@ -16,7 +16,7 @@ is_public=$YNH_APP_ARG_IS_PUBLIC
 default_home_server=$YNH_APP_ARG_DEFAULT_HOME_SERVER
 
 # Check domain/path availability
-test $(ynh_webpath_available $domain $path_url) == 'True' || ynh_die "$domain$path_url is not available, please use an other domain or path."
+ynh_webpath_available $domain $path_url || ynh_die "$domain$path_url is not available, please use an other domain or path."
 ynh_webpath_register $app $domain $path_url
 
 # Check Final Path availability
@@ -28,15 +28,22 @@ ynh_app_setting_set $app default_home_server $default_home_server
 ynh_app_setting_set $app final_path $final_path
 
 # Get source and install in source dir
-ynh_setup_source $final_path/
-chown www-data -R $final_path
-chmod 740 -R $final_path
+install_source
+
+# Create a system user
+ynh_system_user_create $app
+
+# Create a dedicated php-fpm config
+ynh_add_fpm_config
+
+# Update Riot config
+config_riot
 
 # Config nginx
 config_nginx
 
-# Update Riot config
-config_riot
+# Set final permission
+set_permission
 
 if [ "$is_public" = "0" ];
 then	# Retire l'accès public

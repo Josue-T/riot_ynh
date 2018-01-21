@@ -30,6 +30,10 @@ Issue
 
 Any issue is welcome here : https://github.com/YunoHost-Apps/riot_ynh/issues
 
+SSO support
+-----------
+
+Now this application support the sso. If you want to use the sso you need to define the path to the default homeserver as your homeserver witch is installed on your yunohost instance.
 
 Important Security Note
 -----------------------
@@ -52,8 +56,4 @@ Riot-Web is published under the Apache License : https://github.com/vector-im/ri
 Todo for official App
 ---------------------
 
-- SSO auth see issue : https://github.com/vector-im/riot-web/issues/3830
 - Improve documentation
-
-
-

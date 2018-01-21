@@ -16,8 +16,15 @@ path_url=$(ynh_app_setting_get $app path)
 # Check domain/path availability
 ynh_webpath_available $domain $path_url || ynh_die "$domain/$path_url is not available, please use an other domain or path."
 
+# Create a system user
+ynh_system_user_create $app
+
 # Restore all config and data
 ynh_restore
 
+# Set final permission
+set_permission
+
 # Reload nginx
 systemctl reload nginx.service
+systemctl reload php5-fpm

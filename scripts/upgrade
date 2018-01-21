@@ -16,16 +16,24 @@ is_public=$(ynh_app_setting_get $app is_public)
 final_path=$(ynh_app_setting_get $app final_path)
 default_home_server=$(ynh_app_setting_get $app default_home_server)
 
+# Create a system user
+grep "riot" "/etc/passwd" || ynh_system_user_create $app
+
 # Get source and install in source dir
-ynh_setup_source $final_path/
-chown www-data -R $final_path
-chmod 740 -R $final_path
+ynh_secure_remove $final_path/bundles
+install_source
+
+# Create a dedicated php-fpm config
+ynh_add_fpm_config
+
+# Update Riot config
+config_riot
 
 # Update nginx config
 config_nginx
 
-# Update Riot config
-config_riot
+# Set final permission
+set_permission
 
 # Recharge la configuration Nginx
 systemctl reload nginx.service

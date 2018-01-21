@@ -14,7 +14,11 @@ domain=$(ynh_app_setting_get $app domain)
 
 ynh_secure_remove "/var/www/$app"
 
-# Suppression de la configuration nginx
-ynh_secure_remove "/etc/nginx/conf.d/$domain.d/$app.conf"
-systemctl reload nginx.service
+# Delete a system user
+ynh_system_user_delete $app
 
+# Remove the dedicated php-fpm config
+ynh_remove_fpm_config
+
+# Suppression de la configuration nginx
+ynh_remove_nginx_config
