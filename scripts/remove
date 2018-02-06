@@ -14,11 +14,11 @@ domain=$(ynh_app_setting_get $app domain)
 
 ynh_secure_remove "/var/www/$app"
 
-# Delete a system user
-ynh_system_user_delete $app
-
 # Remove the dedicated php-fpm config
 ynh_remove_fpm_config
+
+# Delete a system user
+ynh_system_user_delete $app
 
 # Suppression de la configuration nginx
 ynh_remove_nginx_config
