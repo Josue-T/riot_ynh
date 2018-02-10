@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#=================================================
+# GENERIC START
+#=================================================
+
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
 

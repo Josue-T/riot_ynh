@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#=================================================
+# GENERIC START
+#=================================================
+
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
 
@@ -16,8 +20,16 @@ is_public=$(ynh_app_setting_get $app is_public)
 final_path=$(ynh_app_setting_get $app final_path)
 default_home_server=$(ynh_app_setting_get $app default_home_server)
 
+#=================================================
+# MIGRATION FROM OLD VERSION
+#=================================================
+
 # Create a system user
 grep "riot" "/etc/passwd" || ynh_system_user_create $app
+
+#=================================================
+# STANDARD UPGRADE STEPS
+#=================================================
 
 # Get source and install in source dir
 ynh_secure_remove $final_path/bundles
@@ -31,6 +43,10 @@ config_riot
 
 # Update nginx config
 config_nginx
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
 
 # Set final permission
 set_permission

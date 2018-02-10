@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#=================================================
+# GENERIC START
+#=================================================
+
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
 
@@ -16,11 +20,19 @@ path_url=$(ynh_app_setting_get $app path)
 # Check domain/path availability
 ynh_webpath_available $domain $path_url || ynh_die "$domain/$path_url is not available, please use an other domain or path."
 
+#=================================================
+# STANDARD RESTORATION STEPS
+#=================================================
+
 # Create a system user
 ynh_system_user_create $app
 
 # Restore all config and data
 ynh_restore
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
 
 # Set final permission
 set_permission

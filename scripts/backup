@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#=================================================
+# GENERIC START
+#=================================================
+
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
 
@@ -8,6 +12,10 @@ ynh_abort_if_errors
 
 # Import common cmd
 source ../settings/scripts/_common.sh
+
+#=================================================
+# STANDARD BACKUP STEPS
+#=================================================
 
 # Retrieve arguments
 domain=$(ynh_app_setting_get $app domain)

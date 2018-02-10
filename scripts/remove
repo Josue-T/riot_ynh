@@ -1,13 +1,18 @@
 #!/bin/bash
 
+#=================================================
+# GENERIC START
+#=================================================
+
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
 
-# Stop script if errors
-set -u
-
 # Import common cmd
 source ./_common.sh
+
+#=================================================
+# STANDARD REMOVE
+#=================================================
 
 # Retrieve arguments
 domain=$(ynh_app_setting_get $app domain)

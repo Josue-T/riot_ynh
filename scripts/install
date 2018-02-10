@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#=================================================
+# GENERIC START
+#=================================================
+
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
 
@@ -27,6 +31,10 @@ ynh_app_setting_set $app is_public $is_public
 ynh_app_setting_set $app default_home_server $default_home_server
 ynh_app_setting_set $app final_path $final_path
 
+#=================================================
+# STANDARD MODIFICATIONS
+#=================================================
+
 # Create a system user
 ynh_system_user_create $app
 
@@ -41,6 +49,10 @@ config_riot
 
 # Config nginx
 config_nginx
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
 
 # Set final permission
 set_permission

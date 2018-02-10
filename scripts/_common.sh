@@ -1,8 +1,15 @@
 #!/bin/bash
 
-# Retrieve arguments
+#=================================================
+# SET ALL CONSTANTS
+#=================================================
+
 app=$YNH_APP_INSTANCE_NAME
 final_path="/var/www/$app"
+
+#=================================================
+# DEFINE ALL COMMON FONCTIONS
+#=================================================
 
 config_nginx() {
     if [ "$path_url" != "/" ]
