@@ -47,9 +47,9 @@ set_permission
 
 if [ "$is_public" = "0" ];
 then	# Retire l'accès public
-	ynh_app_setting_delete $app skipped_uris
+    ynh_app_setting_delete $app skipped_uris
 else
-    ynh_app_setting_set $app skipped_uris "/"
+    ynh_app_setting_set $app unprotected_uris "/"
 fi
 
 # Recharge la configuration Nginx
