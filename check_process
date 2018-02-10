@@ -14,6 +14,7 @@
         setup_private=1
         setup_public=1
         upgrade=1
+        upgrade=1    from_commit=f39b77ae010dc6ed197b4b8e92110bede6ed4e07
         backup_restore=1
         multi_instance=1
         wrong_user=0
@@ -36,3 +37,6 @@
     Level 8=0
     Level 9=0
     Level 10=0
+;;; Upgrade options
+	; commit=f39b77ae010dc6ed197b4b8e92110bede6ed4e07
+		name=Before sso Support and refactoring
