@@ -48,7 +48,7 @@ ynh_add_fpm_config
 config_riot
 
 # Config nginx
-config_nginx
+ynh_add_nginx_config
 
 #=================================================
 # GENERIC FINALIZATION
