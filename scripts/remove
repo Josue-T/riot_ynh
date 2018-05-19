@@ -8,6 +8,7 @@
 source /usr/share/yunohost/helpers
 
 # Import common cmd
+source ./experimental_helper.sh
 source ./_common.sh
 
 #=================================================
