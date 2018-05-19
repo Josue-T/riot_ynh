@@ -25,14 +25,12 @@ domain=$YNH_APP_NEW_DOMAIN
 # Update nginx config
 if [ "$old_domain" != "$domain" ]
 then
-    old_file_path="/etc/nginx/conf.d/$old_domain.d/$app.conf"
-    new_file_path="/etc/nginx/conf.d/$domain.d/$app.conf"
+    # Delete file checksum for the old conf file location
+    ynh_delete_file_checksum "/etc/nginx/conf.d/$old_domain.d/$app.conf"
+
     mv "$old_file_path" "$new_file_path"
 
-    # Change the checksum setting name
-    checksum_setting_old_name=checksum_${old_file_path//[\/ ]/_}
-    checksum_setting_new_name=checksum_${new_file_path//[\/ ]/_}
-    checksum_value=$(ynh_app_setting_get $app $checksum_setting_old_name)
-    ynh_app_setting_set $app $checksum_setting_new_name $checksum_value
+    # Store file checksum for the new config file location
+    ynh_store_file_checksum "/etc/nginx/conf.d/$domain.d/$app.conf"
 fi
 ynh_add_nginx_config
