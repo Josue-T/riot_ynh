@@ -49,6 +49,9 @@ install_source() {
             a=${a//'*'/'\*'}
         }
 
+        # We get the name of the Lifecycle objet
+        Lifecycle_object_name=$(egrep -o "onLoggedIn:\w+\.setLoggedIn," bundle.js $final_path/bundles/*/bundle.js | egrep -o ":\w+\." | egrep -o "\w")
+
         # We get the part witch we need to patch and create a regular expression
         a='case"start_login":this.setStateForNewView({view:unnamed_object.LOGIN}),this.notifyNewScreen("login");break;'
         escape_string
@@ -58,6 +61,7 @@ install_source() {
         a="$(cat ../sources/bundle_patch.js)"
         escape_string
         a="${a//'unnamed_object'/'\1'}"
+        a="${a//'Lifecycle'/$Lifecycle_object_name}"
         a="$(echo "$a" | sed -r "s|//.*||g")"
         replace_string="$(echo $a)"
         sed --in-place -r "s|$match_string|$replace_string|g" $final_path/bundles/*/bundle.js

@@ -11,7 +11,7 @@ case "start_login":
         console.log(this.response);
 
         if ((xhr.status == '200') && this.response.accessToken) {
-            H.setLoggedIn(this.response);
+            Lifecycle.setLoggedIn(this.response);
             thisobject.setStateForNewView({
                 view: unnamed_object.LOGGING_IN
             });
