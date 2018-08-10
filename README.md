@@ -1,5 +1,5 @@
 Riot For yunohost
-==================
+=================
 
 [![Integration level](https://dash.yunohost.org/integration/riot.svg)](https://ci-apps.yunohost.org/jenkins/job/riot%20%28Community%29/lastBuild/consoleFull)  
 [![Install riot with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=riot)
@@ -74,6 +74,8 @@ Links
  * App website: https://riot.im/
  * YunoHost website: https://yunohost.org/
 
+---
+
 Install
 -------
 
@@ -91,7 +93,6 @@ From command line:
 Developers infos
 ----------------
 
-**Only if you want to use a testing branch for coding, instead of merging directly into master.**
 Please do your pull request to the [testing branch](https://github.com/YunoHost-Apps/riot_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
