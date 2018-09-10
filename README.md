@@ -14,7 +14,7 @@ It's a webclient for matrix. For a matrix server you can install synapse on your
 
 Yunohost chattroom with matrix : [https://riot.im/app/#/room/#yunohost:matrix.org](https://riot.im/app/#/room/#yunohost:matrix.org)
 
-**Shipped version:** 0.16.3
+**Shipped version:** 0.16.4
 
 Screenshots
 -----------
