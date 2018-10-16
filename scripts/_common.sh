@@ -52,7 +52,7 @@ install_source() {
         }
 
         # We get the name of the Lifecycle objet
-        Lifecycle_object_name=$(egrep -o 'onLoggedIn:[\w\$]+\.setLoggedIn,' $final_path/bundles/*/bundle.js | egrep -o ':[\w\$]+\.' | egrep -o '[\w\$]')
+        Lifecycle_object_name=$(grep -P -o 'onLoggedIn:[\w\$]+\.setLoggedIn,' $final_path/bundles/*/bundle.js | grep -P -o ':[\w\$]+\.' | grep -P -o '[\w\$]')
 
         # We get the part witch we need to patch and create a regular expression
         a='case"start_login":this.setStateForNewView({view:unnamed_object.LOGIN}),this.notifyNewScreen("login");break;'
