@@ -1,7 +1,7 @@
 Riot For yunohost
 =================
 
-[![Integration level](https://dash.yunohost.org/integration/riot.svg)](https://ci-apps.yunohost.org/jenkins/job/riot%20%28Community%29/lastBuild/consoleFull)  
+[![Integration level](https://dash.yunohost.org/integration/riot.svg)](https://ci-apps.yunohost.org/ci/apps/riot%20%28Community%29/lastBuild/consoleFull)  
 [![Install riot with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=riot)
 
 > *This package allow you to install riot quickly and simply on a YunoHost server.  
@@ -44,9 +44,9 @@ Now this application support the sso. If you want to use the sso you need to def
 
 ### Supported architectures
 
-* x86-64b - [![Build Status](https://ci-apps.yunohost.org/jenkins/job/riot%20(Community)/badge/icon)](https://ci-apps.yunohost.org/jenkins/job/riot%20(Community)/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/jenkins/job/riot%20(Community)%20(%7EARM%7E)/badge/icon)](https://ci-apps-arm.yunohost.org/jenkins/job/riot%20(Community)%20(%7EARM%7E)/)
-* Jessie x86-64b - [![Build Status](https://ci-stretch.nohost.me/jenkins/job/riot%20(Community)/badge/icon)](https://ci-stretch.nohost.me/jenkins/job/riot%20(Community)/)
+* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/riot%20(Community).svg)](https://ci-apps.yunohost.org/ci/apps/riot/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/riot%20(Community).svg)](https://ci-apps-arm.yunohost.org/jenkins/job/riot/)
+* Jessie x86-64b - [![Build Status](https://ci-stretch.nohost.me/jenkins/job/riot%20(Community).svg)](https://ci-stretch.nohost.me/jenkins/job/riot/)
 
 <!--## Limitations
 
