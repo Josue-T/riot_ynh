@@ -9,7 +9,7 @@ $url = "$url/_matrix/client/r0/login?";
 
 $remoteUser = $_SERVER['REMOTE_USER'];
 $userPassword = $_SERVER['PHP_AUTH_PW'];
-$deviceName = json_decode($HTTP_RAW_POST_DATA)->devicename;
+$deviceName = json_decode(file_get_contents('php://input'))->devicename;
 $deviceName = preg_filter("/^([\w\s_.\/\-\:\.]*)$/", "$1", $deviceName);
 
 if ($deviceName == '') {
