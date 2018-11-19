@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/vector-im/riot-web/releases/download/v0.17.5/riot-v0.17.5.tar.gz
-SOURCE_SUM=16fd85ce7a34206bff092e49da93f7dbd7a4dd80dc3317cd56756082ad50d801
+SOURCE_URL=https://github.com/vector-im/riot-web/releases/download/v0.17.6/riot-v0.17.6.tar.gz
+SOURCE_SUM=b5dd88900f9f3b9d4d43a3cc329a0ac8f3ef8ec785c99ce057b5b394017668f8
 # (Optional) Program to check the integrity (sha256sum, md5sum...)
 # default: sha256
 SOURCE_SUM_PRG=sha256sum
