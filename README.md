@@ -19,10 +19,29 @@ Yunohost chattroom with matrix : [https://riot.im/app/#/room/#yunohost:matrix.or
 Screenshots
 -----------
 
-![](https://about.riot.im/wp-content/themes/riot/img/slider-video.png)
+#### Modern Communication
 
-![](https://about.riot.im/wp-content/themes/riot/img/main-mob1.png)
-![](https://about.riot.im/wp-content/themes/riot/img/slider-phone.png)
+Organise rooms around whatever team, community purpose you like! Chat, share files, add widgets, and make video/voice calls and conferences.
+
+![](https://about.riot.im/images/home-communication.png)
+
+#### Integrations
+
+Channel data to and from tools you already use and love, even bridging in users and groups from other chat apps.
+
+![](https://about.riot.im/images/home-integrations.png)
+
+#### Security
+
+Keep your conversations secret. State of the art end-to-end encryption ensures that private communication stays private.
+
+![](https://about.riot.im/images/home-security.png)
+
+#### Open Source & Open Standard
+
+Open source, and built on Matrix. Own your own data by hosting your own server.
+
+![](https://about.riot.im/images/carousel-open.png)
 
 Demo
 ----
