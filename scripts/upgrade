@@ -15,26 +15,31 @@ source ./experimental_helper.sh
 source ./_common.sh
 
 # Retrieve arguments
-domain=$(ynh_app_setting_get $app domain)
-path_url=$(ynh_normalize_url_path $(ynh_app_setting_get $app path))
-is_public=$(ynh_app_setting_get $app is_public)
-final_path=$(ynh_app_setting_get $app final_path)
-default_home_server=$(ynh_app_setting_get $app default_home_server)
+ynh_script_progression --message="Loading installation settings..."
+domain=$(ynh_app_setting_get --app $app --key domain)
+path_url=$(ynh_normalize_url_path --path_url $(ynh_app_setting_get --app $app --key path))
+is_public=$(ynh_app_setting_get --app $app --key is_public)
+final_path=$(ynh_app_setting_get --app $app --key final_path)
+default_home_server=$(ynh_app_setting_get --app $app --key default_home_server)
 
 #=================================================
 # MIGRATION FROM OLD VERSION
 #=================================================
 
 # Create a system user
-grep "riot" "/etc/passwd" || ynh_system_user_create $app
+ynh_script_progression --message="Migrating application..." --weight=1
+grep "riot" "/etc/passwd" || ynh_system_user_create --username $app
 
 #=================================================
 # STANDARD UPGRADE STEPS
 #=================================================
 
 # Get source and install in source dir
-ynh_secure_remove $final_path/bundles
+ynh_script_progression --message="Upgrading source files..." --weight=6
+ynh_secure_remove --file=$final_path/bundles
 install_source
+
+ynh_script_progression --message="Configuring application..."
 
 # Create a dedicated php-fpm config
 ynh_add_fpm_config
@@ -50,6 +55,7 @@ ynh_add_nginx_config
 #=================================================
 
 # Set final permission
+ynh_script_progression --message="Protecting directory..."
 set_permission
 
 # Recharge la configuration Nginx

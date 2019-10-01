@@ -14,35 +14,40 @@ ynh_abort_if_errors
 source ./experimental_helper.sh
 source ./_common.sh
 
+ynh_script_progression --message="Validating installation parameters..."
+
 # Retrieve arguments
 domain=$YNH_APP_ARG_DOMAIN
-path_url=$(ynh_normalize_url_path $YNH_APP_ARG_PATH)
+path_url=$(ynh_normalize_url_path --path_url $YNH_APP_ARG_PATH)
 is_public=$YNH_APP_ARG_IS_PUBLIC
 default_home_server=$YNH_APP_ARG_DEFAULT_HOME_SERVER
 
-# Check domain/path availability
-ynh_webpath_available $domain $path_url || ynh_die "$domain$path_url is not available, please use an other domain or path."
-ynh_webpath_register $app $domain $path_url
+# Register (book) web path
+ynh_webpath_register --app $app --domain $domain --path_url $path_url
 
 # Check Final Path availability
-test ! -e "$final_path" || ynh_die "This path already contains a folder"
+test ! -e "$final_path" || ynh_die --message "This path already contains a folder"
 
 # Enregistre les infos dans la config YunoHost
-ynh_app_setting_set $app is_public $is_public
-ynh_app_setting_set $app default_home_server $default_home_server
-ynh_app_setting_set $app final_path $final_path
+ynh_script_progression --message="Storing installation settings..."
+ynh_app_setting_set --app $app --key is_public --value $is_public
+ynh_app_setting_set --app $app --key default_home_server --value $default_home_server
+ynh_app_setting_set --app $app --key final_path --value $final_path
 
 #=================================================
 # STANDARD MODIFICATIONS
 #=================================================
 
 # Create a system user
-ynh_system_user_create $app
+ynh_script_progression --message="Configuring system user..."
+ynh_system_user_create --username $app
 
 # Get source and install in source dir
+ynh_script_progression --message="Installing sources files..." --weight=10
 install_source
 
 # Create a dedicated php-fpm config
+ynh_script_progression --message="Configuring application..."
 ynh_add_fpm_config
 
 # Update Riot config
@@ -56,13 +61,15 @@ ynh_add_nginx_config
 #=================================================
 
 # Set final permission
+ynh_script_progression --message="Protecting directory"
 set_permission
 
+ynh_script_progression --message="Configuring permissions"
 if [ "$is_public" = "0" ];
 then	# Retire l'accès public
-    ynh_app_setting_delete $app skipped_uris
+    ynh_app_setting_delete --app $app --key skipped_uris
 else
-    ynh_app_setting_set $app unprotected_uris "/"
+    ynh_app_setting_set --app $app --key unprotected_uris --value "/"
 fi
 
 # Recharge la configuration Nginx

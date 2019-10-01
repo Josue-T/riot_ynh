@@ -3,7 +3,7 @@
 	"id": "riot",
 	"packaging_format": 1,
 	"requirements": {
-		"yunohost": ">= 2.7.14"
+		"yunohost": ">= 3.5.2.2"
 	},
 	"description": {
 		"en": "A web client for matrix",

@@ -13,11 +13,11 @@ final_path="/var/www/$app"
 
 config_riot() {
     cp ../conf/config.json $final_path/config.json
-    ynh_replace_string __DEFAULT_SERVER__ $default_home_server $final_path/config.json
+    ynh_replace_string --match_string __DEFAULT_SERVER__ --replace_string $default_home_server --target_file $final_path/config.json
 }
 
 install_source() {
-    ynh_setup_source $final_path/
+    ynh_setup_source --dest_dir $final_path/
 
     # if the default homeserver is external we dont add the sso support
     if [[ $(yunohost domain list | grep "$default_home_server") ]]
