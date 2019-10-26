@@ -63,9 +63,8 @@ Now this application support the sso. If you want to use the sso you need to def
 
 ### Supported architectures
 
-* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/riot%20(Community).svg)](https://ci-apps.yunohost.org/ci/apps/riot/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/riot%20(Community).svg)](https://ci-apps-arm.yunohost.org/jenkins/job/riot/)
-* Jessie x86-64b - [![Build Status](https://ci-stretch.nohost.me/jenkins/job/riot%20(Community).svg)](https://ci-stretch.nohost.me/jenkins/job/riot/)
+* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/riot%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/riot/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/riot%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/jenkins/job/riot/)
 
 <!--## Limitations
 
