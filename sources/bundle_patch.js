@@ -1,4 +1,4 @@
-case "start_login":
+case "view_welcome_page":
     console.log('Try SSO Login');
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
@@ -17,9 +17,7 @@ case "start_login":
             });
         } else {
             console.log('SSO login failled, php page returned ' + xhr.status + ' error or returned an empty accessToken');
-            thisobject.setStateForNewView({
-                view: unnamed_object.LOGIN
-            }), thisobject.notifyNewScreen("login");
+            thisobject._viewWelcome();
         }
     };
     xhr.send(JSON.stringify({ 'devicename' : this.props.defaultDeviceDisplayName }));

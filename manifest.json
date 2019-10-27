@@ -43,6 +43,7 @@
 			},
 			{
 				"name": "default_home_server",
+				"type": "domain",
 				"ask": {
 					"en": "Chose a default home server",
 					"fr": "Choisissez un serveur par défault"
