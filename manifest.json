@@ -43,7 +43,7 @@
 			},
 			{
 				"name": "default_home_server",
-				"type": "domain",
+				"type": "string",
 				"ask": {
 					"en": "Chose a default home server",
 					"fr": "Choisissez un serveur par défault"
@@ -55,9 +55,13 @@
 				"name": "is_public",
 				"type": "boolean",
 				"ask": {
-					"en": "Is it a public server ?",
-					"fr": "Est-ce un serveur publique ?"
-			},
+					"en": "Is it a public app ?",
+					"fr": "Est-ce une app publique ?"
+                },
+                "help": { 
+					"en": "A public apps mean that everybody can access to this app. Note that this app just provide a some files (html, javascript, pictures, etc).",
+					"fr": "Une app publique signifie que n'importe qui peut accéder à cette application. Notez que cette application fournis juste des fichier (html, javascript, images, etc)."
+				},
 				"default": false
 			}
 		]
