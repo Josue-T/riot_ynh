@@ -33,3 +33,5 @@ ynh_remove_fpm_config
 # Delete a system user
 ynh_script_progression --message="Removing apps user..."
 ynh_system_user_delete --username $app
+
+ynh_script_progression --message="Removal of $app completed" --last

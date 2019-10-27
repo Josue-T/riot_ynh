@@ -74,3 +74,5 @@ fi
 
 # Recharge la configuration Nginx
 systemctl reload nginx.service
+
+ynh_script_progression --message="Installation of $app completed" --last

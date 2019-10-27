@@ -60,3 +60,5 @@ set_permission
 
 # Recharge la configuration Nginx
 systemctl reload nginx.service
+
+ynh_script_progression --message="Upgrade of $app completed" --last
