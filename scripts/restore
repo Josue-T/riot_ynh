@@ -45,6 +45,5 @@ set_permission
 # Reload nginx
 ynh_script_progression --message="Reloading services..."
 systemctl reload nginx.service
-systemctl reload php5-fpm
 
 ynh_script_progression --message="Restoration completed for $app" --last

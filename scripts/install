@@ -38,17 +38,9 @@ ynh_app_setting_set --app $app --key final_path --value $final_path
 # STANDARD MODIFICATIONS
 #=================================================
 
-# Create a system user
-ynh_script_progression --message="Configuring system user..."
-ynh_system_user_create --username $app
-
 # Get source and install in source dir
 ynh_script_progression --message="Installing sources files..." --weight=10
 install_source
-
-# Create a dedicated php-fpm config
-ynh_script_progression --message="Configuring application..."
-ynh_add_fpm_config
 
 # Update Riot config
 config_riot
