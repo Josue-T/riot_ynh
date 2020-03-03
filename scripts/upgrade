@@ -23,14 +23,6 @@ final_path=$(ynh_app_setting_get --app $app --key final_path)
 default_home_server=$(ynh_app_setting_get --app $app --key default_home_server)
 
 #=================================================
-# MIGRATION FROM OLD VERSION
-#=================================================
-
-# Create a system user
-ynh_script_progression --message="Migrating application..." --weight=1
-grep "riot" "/etc/passwd" || ynh_system_user_create --username $app
-
-#=================================================
 # STANDARD UPGRADE STEPS
 #=================================================
 
@@ -41,11 +33,15 @@ install_source
 
 ynh_script_progression --message="Configuring application..."
 
-# Create a dedicated php-fpm config
-ynh_add_fpm_config
-
 # Update Riot config
 config_riot
+
+# Remove the dedicated php-fpm config
+ynh_remove_fpm_config
+
+# Delete a system user
+ynh_script_progression --message="Removing apps user..."
+ynh_system_user_delete --username $app
 
 # Update nginx config
 ynh_add_nginx_config
