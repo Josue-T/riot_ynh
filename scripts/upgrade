@@ -28,7 +28,7 @@ default_home_server=$(ynh_app_setting_get --app $app --key default_home_server)
 
 # Get source and install in source dir
 ynh_script_progression --message="Upgrading source files..." --weight=6
-ynh_secure_remove --file=$final_path/bundles
+ynh_secure_remove --file=$final_path
 install_source
 
 ynh_script_progression --message="Configuring application..."
