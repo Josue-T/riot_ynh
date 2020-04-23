@@ -57,11 +57,9 @@ ynh_script_progression --message="Protecting directory"
 set_permission
 
 ynh_script_progression --message="Configuring permissions"
-if [ "$is_public" = "0" ];
-then	# Retire l'accès public
-    ynh_app_setting_delete --app $app --key skipped_uris
-else
-    ynh_app_setting_set --app $app --key unprotected_uris --value "/"
+if [ "$is_public" == '1' ];
+then
+    ynh_permission_update --permission "main" --add "visitors"
 fi
 
 # Recharge la configuration Nginx
