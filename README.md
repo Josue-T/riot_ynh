@@ -1,10 +1,10 @@
-Riot For yunohost
+Element For yunohost
 =================
 
-[![Integration level](https://dash.yunohost.org/integration/riot.svg)](https://ci-apps.yunohost.org/ci/apps/riot%20%28Community%29/lastBuild/consoleFull)  
-[![Install riot with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=riot)
+[![Integration level](https://dash.yunohost.org/integration/element.svg)](https://dash.yunohost.org/appci/app/element) ![](https://ci-apps.yunohost.org/ci/badges/element.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/element.maintain.svg)  
+[![Install Element with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=element)
 
-> *This package allow you to install riot quickly and simply on a YunoHost server.  
+> *This package allow you to install Element quickly and simply on a YunoHost server.  
 If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
 
 Overview
@@ -12,46 +12,50 @@ Overview
 
 It's a webclient for matrix. For a matrix server you can install synapse on your server : https://github.com/YunoHost-Apps/synapse_ynh
 
-Yunohost chattroom with matrix : [https://riot.im/app/#/room/#yunohost:matrix.org](https://riot.im/app/#/room/#yunohost:matrix.org)
+Yunohost chattroom with matrix : [https://app.element.io/#/room/#yunohost:matrix.org](https://app.element.io/#/room/#yunohost:matrix.org)
 
 **Shipped version:** 1.7.1
 
 Screenshots
 -----------
 
-#### Modern Communication
+#### Own your conversations
 
-Organise rooms around whatever team, community purpose you like! Chat, share files, add widgets, and make video/voice calls and conferences.
+All-in-one secure chat app for teams, friends and organisations. Keeps conversations in your control, safe from data-mining and ads. Talk to everyone through the open global Matrix network, protected by proper end-to-end encryption.
 
-![](https://about.riot.im/images/home-communication.png)
+![](https://element.io/images/homepage-all-platforms-1-p-800.png)
+![](https://element.io/images/ios-room-chat-012x-p-500.png)
+![](https://element.io/images/pixel4-rooms-light-012x-p-500.png)
 
-#### Integrations
+**Element gives you the privacy you expect from a conversation in your own home, but with everyone across the globe.**
 
-Channel data to and from tools you already use and love, even bridging in users and groups from other chat apps.
+##### Keep it personal
 
-![](https://about.riot.im/images/home-integrations.png)
+Group chat, video calls and sharing to stay in touch and coordinate with family and friends.
 
-#### Security
+![](https://element.io/images/for-personal.png)
 
-Keep your conversations secret. State of the art end-to-end encryption ensures that private communication stays private.
+##### Revolutionise the workplace
 
-![](https://about.riot.im/images/home-security.png)
+Highly effective teamwork within a company, across a business ecosystem or an entire government.
 
-#### Open Source & Open Standard
+![](https://element.io/images/temp-img-pro-use-01.png)
 
-Open source, and built on Matrix. Own your own data by hosting your own server.
+##### Host your community
 
-![](https://about.riot.im/images/carousel-open.png)
+From clubs to social movements, keep everyone together with a platform everyone can use.
+
+![](https://element.io/images/temp-community-image-02.png)
 
 Demo
 ----
 
-* [Official demo](https://riot.im/app)
+* [Official demo](https://app.element.io/)
 
 Documentation
 -------------
 
- * Official documentation: https://about.riot.im/need-help/
+ * Official documentation: https://element.io/help
  * YunoHost documentation: There no other documentations, feel free to contribute.
 
 YunoHost specific features
@@ -63,8 +67,8 @@ Now this application support the sso. If you want to use the sso you need to def
 
 ### Supported architectures
 
-* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/riot%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/riot/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/riot%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/jenkins/job/riot/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/element%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/element/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/element%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/element/)
 
 <!--## Limitations
 
@@ -75,21 +79,31 @@ Additional informations
 
 ### Important Security Note
 
-We do not recommend running Riot from the same domain name as your Matrix
+We do not recommend running Element from the same domain name as your Matrix
 homeserver (synapse).  The reason is the risk of XSS (cross-site-scripting)
-vulnerabilities that could occur if someone caused Riot to load and render
+vulnerabilities that could occur if someone caused Element to load and render
 malicious user generated content from a Matrix API which then had trusted
-access to Riot (or other apps) due to sharing the same domain.
+access to Element (or other apps) due to sharing the same domain.
 
 We have put some coarse mitigations into place to try to protect against this
 situation, but it's still not good practice to do it in the first place.  See
 https://github.com/vector-im/riot-web/issues/1977 for more details.
 
+### Migration from old app name "Riot"
+
+As this app don't contains any data on the server side no migration was made to migrate from "Riot" to "Element".
+So you just will need to remove Riot and install Element on the same domain (you can change the path) to be able to keep the data on your web browser.
+So the process to migrate to element is the following:
+
+1. Get the domain of "Riot": `yunohost app setting riot domain`
+2. Remove Riot: `yunohost app remove riot`
+3. Install Element: `yunohost app install element`
+
 Links
 -----
 
- * Report a bug: https://github.com/YunoHost-Apps/riot_ynh/issues
- * App website: https://riot.im/
+ * Report a bug: https://github.com/YunoHost-Apps/element_ynh/issues
+ * App website: https://element.io/
  * YunoHost website: https://yunohost.org/
 
 ---
@@ -99,31 +113,31 @@ Install
 
 From command line:
 
-`sudo yunohost app install -l riot https://github.com/YunoHost-Apps/riot_ynh`
+`sudo yunohost app install -l element https://github.com/YunoHost-Apps/element_ynh`
 
 Upgrade
 -------
 
 From command line:
 
-`sudo yunohost app upgrade riot -u https://github.com/YunoHost-Apps/riot_ynh`
+`sudo yunohost app upgrade element -u https://github.com/YunoHost-Apps/element_ynh`
 
 Developers infos
 ----------------
 
-Please do your pull request to the [testing branch](https://github.com/YunoHost-Apps/riot_ynh/tree/testing).
+Please do your pull request to the [testing branch](https://github.com/YunoHost-Apps/element_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
 ```
-sudo yunohost app install https://github.com/YunoHost-Apps/riot_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/element_ynh/tree/testing --debug
 or
-sudo yunohost app upgrade riot -u https://github.com/YunoHost-Apps/riot_ynh/tree/testing --debug
+sudo yunohost app upgrade element -u https://github.com/YunoHost-Apps/element_ynh/tree/testing --debug
 ```
 
 License
 -------
 
-Riot-Web is published under the Apache License : https://github.com/vector-im/riot-web/blob/master/LICENSE
+Element-Web is published under the Apache License : https://github.com/vector-im/riot-web/blob/master/LICENSE
 
 Todo for official App
 ---------------------

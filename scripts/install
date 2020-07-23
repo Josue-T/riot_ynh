@@ -42,8 +42,8 @@ ynh_app_setting_set --app $app --key final_path --value $final_path
 ynh_script_progression --message="Installing sources files..." --weight=10
 install_source
 
-# Update Riot config
-config_riot
+# Update Element config
+config_element
 
 # Config nginx
 ynh_add_nginx_config

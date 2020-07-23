@@ -1,7 +1,7 @@
 {
     "default_hs_url": "https://__DEFAULT_SERVER__",
     "default_is_url": "https://vector.im",
-    "brand": "Riot",
+    "brand": "Element",
     "integrations_ui_url": "https://scalar.vector.im/",
     "integrations_rest_url": "https://scalar.vector.im/api",
     "enableLabs": true,

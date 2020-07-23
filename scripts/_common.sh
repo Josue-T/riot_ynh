@@ -11,7 +11,7 @@ final_path="/var/www/$app"
 # DEFINE ALL COMMON FONCTIONS
 #=================================================
 
-config_riot() {
+config_element() {
     cp ../conf/config.json $final_path/config.json
     ynh_replace_string --match_string __DEFAULT_SERVER__ --replace_string $default_home_server --target_file $final_path/config.json
 }
