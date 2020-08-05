@@ -29,7 +29,6 @@
     Level 1=auto
     Level 2=auto
     Level 3=auto
-    # https://github.com/YunoHost-Apps/riot_ynh/blob/master/sources/bundle_patch.js
     Level 4=1
     Level 5=auto
     Level 6=auto

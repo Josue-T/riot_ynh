@@ -1,6 +1,6 @@
 {
-	"name": "Riot",
-	"id": "riot",
+	"name": "Element",
+	"id": "element",
 	"packaging_format": 1,
 	"requirements": {
 		"yunohost": ">= 3.7.0.6"
@@ -9,8 +9,8 @@
 		"en": "A web client for matrix",
 		"fr": "Un client web pour matrix"
 	},
-	"version": "1.6.8~ynh1",
-	"url": "https://riot.im",
+	"version": "1.7.2~ynh1",
+	"url": "https://element.im",
 	"license": "Apache-2.0",
 	"maintainer": {
 		"name": "Josué Tille",
@@ -26,8 +26,8 @@
 				"name": "domain",
 				"type": "domain",
                                 "ask": {
-					"en": "Choose a domain for Riot",
-					"fr": "Choisissez un domaine pour Riot"
+					"en": "Choose a domain for Element",
+					"fr": "Choisissez un domaine pour Element"
 				},
 				"example": "domain.org"
 			},
@@ -35,11 +35,11 @@
 				"name": "path",
 				"type": "path",
 				"ask": {
-					"en": "Choose a path for Riot",
-					"fr": "Choisissez un chemin pour Riot"
+					"en": "Choose a path for Element",
+					"fr": "Choisissez un chemin pour Element"
 				},
-				"example": "/riot",
-				"default": "/riot"
+				"example": "/element",
+				"default": "/element"
 			},
 			{
 				"name": "default_home_server",
