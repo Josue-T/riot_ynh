@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/vector-im/element-web/releases/download/v1.7.20/element-v1.7.20.tar.gz
-SOURCE_SUM=f11ee5fcf9b299de7efc5ae2ef3dbf4c38f587614bd1080b202a176a378f8a78
+SOURCE_URL=https://github.com/vector-im/element-web/releases/download/v1.7.21/element-v1.7.21.tar.gz
+SOURCE_SUM=2495e5fa30e55f0f1f67565e780002be295ba86f736a70a606c1f2e811256bc3
 # (Optional) Program to check the integrity (sha256sum, md5sum...)
 # default: sha256
 SOURCE_SUM_PRG=sha256sum
