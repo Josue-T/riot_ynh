@@ -14,7 +14,7 @@ It's a webclient for matrix. For a matrix server you can install synapse on your
 
 Yunohost chattroom with matrix : [https://app.element.io/#/room/#yunohost:matrix.org](https://app.element.io/#/room/#yunohost:matrix.org)
 
-**Shipped version:** 1.7.29
+**Shipped version:** 1.7.30
 
 Screenshots
 -----------
