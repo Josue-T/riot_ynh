@@ -3,14 +3,14 @@
 	"id": "element",
 	"packaging_format": 1,
 	"requirements": {
-		"yunohost": ">= 3.7.0.6"
+		"yunohost": ">= 4.2.6.1"
 	},
 	"description": {
 		"en": "A web client for matrix",
 		"fr": "Un client web pour matrix"
 	},
-	"version": "1.7.29~ynh1",
-	"url": "https://element.im",
+	"version": "1.7.32~ynh1",
+	"url": "https://element.io",
 	"license": "Apache-2.0",
 	"maintainer": {
 		"name": "Josué Tille",
