@@ -31,6 +31,19 @@ ynh_secure_remove --file="$final_path"
 #=================================================
 ynh_script_progression --message="Removing NGINX web server configuration..." --weight=1
 
+# Remove the dedicated NGINX config
+ynh_remove_nginx_config
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
+# REMOVE DEDICATED USER
+#=================================================
+ynh_script_progression --message="Removing the dedicated system user..." --weight=1
+
+# Delete a system user
+ynh_system_user_delete --username=$app
+
 #=================================================
 # END OF SCRIPT
 #=================================================
