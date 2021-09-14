@@ -2,9 +2,6 @@
 	"name": "Element",
 	"id": "element",
 	"packaging_format": 1,
-	"requirements": {
-		"yunohost": ">= 4.2.6.1"
-	},
 	"description": {
 		"en": "Web client for matrix",
 		"fr": "Client web pour matrix"
