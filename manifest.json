@@ -21,7 +21,7 @@
 		"email": "josue@tille.ch"
 	},
 	"requirements": {
-		"yunohost": ">= 4.2.6.1"
+		"yunohost": ">= 4.3.0"
 	},
 	"multi_instance": true,
 	"services": [
@@ -31,8 +31,7 @@
 		"install" : [
 			{
 				"name": "domain",
-				"type": "domain",
-				"example": "domain.org"
+				"type": "domain"
 			},
 			{
 				"name": "path",
