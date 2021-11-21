@@ -11,9 +11,9 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-Element is a new type of messaging app. You choose where your messages are stored, putting you in control of your data. It gives you access to the Matrix open network, so you can talk to anyone. Element provides a new level of security, adding cross-signed device verification to default end-to-end encryption.
+Element est un nouveau type d'application de messagerie. Vous choisissez où vos messages sont stockés, ce qui vous donne le contrôle de vos données. Il vous donne accès au réseau ouvert Matrix, vous pouvez donc parler à n'importe qui. Element offre un nouveau niveau de sécurité, en ajoutant la vérification des appareils par signature croisée au chiffrement de bout en bout par défaut. 
 
-**Version incluse :** 1.9.3~ynh1
+**Version incluse :** 1.9.4~ynh1
 
 **Démo :** https://app.element.io/
 
@@ -23,36 +23,35 @@ Element is a new type of messaging app. You choose where your messages are store
 
 ## Avertissements / informations importantes
 
+## Fonctionnalités spécifiques à YunoHost
 
-## YunoHost specific features
+### Prise en charge multi-utilisateurs
 
-### Multi-users support
+Maintenant, cette application prend en charge le SSO. Si vous souhaitez utiliser le sso, vous devez définir le chemin d'accès au serveur domestique par défaut car votre serveur domestique est installé sur votre instance YunoHost.
 
-Now this application support the SSO. If you want to use the sso you need to define the path to the default homeserver as your homeserver witch is installed on your YunoHost instance.
+## Informations supplémentaires
 
-## Additional informations
+### Note de sécurité importante
 
-### Important Security Note
+Nous vous déconseillons d'exécuter Element à partir du même nom de domaine que votre Matrix
+serveur domestique (Synapse). La raison en est le risque de XSS (cross-site-scripting)
+vulnérabilités qui pourraient survenir si quelqu'un provoquait le chargement et le rendu d'Element
+un utilisateur malveillant a généré du contenu à partir d'une API Matrix qui avait alors fait confiance
+accès à Element (ou à d'autres applications) en raison du partage du même domaine.
 
-We do not recommend running Element from the same domain name as your Matrix
-homeserver (synapse).  The reason is the risk of XSS (cross-site-scripting)
-vulnerabilities that could occur if someone caused Element to load and render
-malicious user generated content from a Matrix API which then had trusted
-access to Element (or other apps) due to sharing the same domain.
+Nous avons mis en place des mesures d'atténuation grossières pour essayer de nous protéger contre ce
+situation, mais ce n'est toujours pas une bonne pratique de le faire en premier lieu. Voir
+https://github.com/vector-im/riot-web/issues/1977 pour plus de détails.
 
-We have put some coarse mitigations into place to try to protect against this
-situation, but it's still not good practice to do it in the first place.  See
-https://github.com/vector-im/riot-web/issues/1977 for more details.
+### Migration à partir de l'ancien nom d'application "Riot"
 
-### Migration from old app name "Riot"
+Comme cette application ne contient aucune donnée côté serveur, aucune migration n'a été effectuée pour migrer de "Riot" vers "Element".
+Il vous suffira donc de supprimer Riot et d'installer Element sur le même domaine (vous pouvez modifier le chemin) pour pouvoir conserver les données sur votre navigateur Web.
+Ainsi, le processus de migration vers l'élément est le suivant :
 
-As this app don't contains any data on the server side no migration was made to migrate from "Riot" to "Element".
-So you just will need to remove Riot and install Element on the same domain (you can change the path) to be able to keep the data on your web browser.
-So the process to migrate to element is the following:
-
-1. Get the domain of "Riot": `yunohost app setting riot domain`
-2. Remove Riot: `yunohost app remove riot`
-3. Install Element: `yunohost app install element`
+1. Obtenez le domaine de "Riot": `yunohost app setting riot domain`
+2. Supprimer Riot : `yunohost app remove riot`
+3. Élément d'installation : `yunohost app install element`
 
 ## Documentations et ressources
 
