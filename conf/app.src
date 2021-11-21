@@ -1,11 +1,5 @@
-SOURCE_URL=https://github.com/vector-im/element-web/releases/download/v1.9.4/element-v1.9.4.tar.gz
-SOURCE_SUM=44bc322aaa285515cda7a001109e34737e7c9289ad0d13af1bdbf3cda4f83190
-# (Optional) Program to check the integrity (sha256sum, md5sum...)
-# default: sha256
+SOURCE_URL=https://github.com/vector-im/element-web/archive/refs/tags/v1.9.4.tar.gz
+SOURCE_SUM=e5f98816d630d6ecc2f8942bfc1ff5bba2d9e479ecc38f2329171ae39609351a
 SOURCE_SUM_PRG=sha256sum
-# (Optional) Archive format
-# default: tar.gz
 SOURCE_FORMAT=tar.gz
-# (Optional) Put false if sources are directly in the archive root
-# default: true
 SOURCE_IN_SUBDIR=true

@@ -1,5 +1,5 @@
 {
-    "default_hs_url": "https://__DEFAULT_SERVER__",
+    "default_hs_url": "https://__DEFAULT_HOME_SERVER__",
     "default_is_url": "https://vector.im",
     "brand": "Element",
     "integrations_ui_url": "https://scalar.vector.im/",

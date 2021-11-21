@@ -2,19 +2,26 @@
 	"name": "Element",
 	"id": "element",
 	"packaging_format": 1,
-	"requirements": {
-		"yunohost": ">= 4.2.6.1"
-	},
 	"description": {
-		"en": "A web client for matrix",
-		"fr": "Un client web pour matrix"
+		"en": "Web client for matrix",
+		"fr": "Client web pour matrix"
 	},
 	"version": "1.9.4~ynh1",
 	"url": "https://element.io",
+	"upstream": {
+        "license": "Apache-2.0",
+        "website": "https://element.io",
+        "demo": "https://app.element.io/",
+        "admindoc": "https://element.io/help",
+        "code": "https://github.com/vector-im/element-web/"
+    },
 	"license": "Apache-2.0",
 	"maintainer": {
 		"name": "Josué Tille",
 		"email": "josue@tille.ch"
+	},
+	"requirements": {
+		"yunohost": ">= 4.3.0"
 	},
 	"multi_instance": true,
 	"services": [
@@ -24,20 +31,11 @@
 		"install" : [
 			{
 				"name": "domain",
-				"type": "domain",
-                                "ask": {
-					"en": "Choose a domain for Element",
-					"fr": "Choisissez un domaine pour Element"
-				},
-				"example": "domain.org"
+				"type": "domain"
 			},
 			{
 				"name": "path",
 				"type": "path",
-				"ask": {
-					"en": "Choose a path for Element",
-					"fr": "Choisissez un chemin pour Element"
-				},
 				"example": "/element",
 				"default": "/element"
 			},
@@ -54,10 +52,6 @@
 			{
 				"name": "is_public",
 				"type": "boolean",
-				"ask": {
-					"en": "Is it a public application?",
-					"fr": "Est-ce une application publique ?"
-                },
                 "help": { 
 					"en": "A public application means that anyone can access it. Note that this application provides just files (html, javascript, images, etc.)",
 					"fr": "Une application publique signifie que n'importe qui peut y accéder. Notez que cette application ne fournit que des fichiers (html, javascript, images, etc.)"
