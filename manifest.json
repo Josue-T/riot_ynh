@@ -3,8 +3,8 @@
 	"id": "element",
 	"packaging_format": 1,
 	"description": {
-		"en": "Web client for matrix",
-		"fr": "Client web pour matrix"
+		"en": "Web client for Matrix",
+		"fr": "Client web pour Matrix"
 	},
 	"version": "1.9.6~ynh1",
 	"url": "https://element.io",
