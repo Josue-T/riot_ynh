@@ -1,11 +1,5 @@
-SOURCE_URL=https://github.com/vector-im/element-web/releases/download/v1.8.5/element-v1.8.5.tar.gz
-SOURCE_SUM=1371fa8970518b89a786ed26bbdea5cbd7fc0183a23057fdcd37298c399f1f2e
-# (Optional) Program to check the integrity (sha256sum, md5sum...)
-# default: sha256
+SOURCE_URL=https://github.com/vector-im/element-web/releases/download/v1.9.8/element-v1.9.8.tar.gz
+SOURCE_SUM=585283f72925628374748beec3768fcee24d337715312f92a99c9646e0c62e90
 SOURCE_SUM_PRG=sha256sum
-# (Optional) Archive format
-# default: tar.gz
 SOURCE_FORMAT=tar.gz
-# (Optional) Put false if sources are directly in the archive root
-# default: true
 SOURCE_IN_SUBDIR=true
