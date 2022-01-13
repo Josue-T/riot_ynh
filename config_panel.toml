@@ -6,13 +6,19 @@ name = "Element configuration"
     [main.config]
     name = "Server Configuration"
 
+        [main.config.default_home_server]
+        ask = "Choose a default home server"
+        type = "string"
+        default = "matrix.org"
+        bind = ":__FINALPATH__/config.json"
+
         [main.config.enable_labs]
         ask = "Enable labs settings"
         type = "boolean"
-        bind = "'showLabsSettings':__FINALPATH__/config.json"
+        bind = "showLabsSettings:__FINALPATH__/config.json"
 
         [main.config.default_theme]
         ask = "Choose a theme"
         type = "select"
         choices = ["light", "dark"]
-        bind = "'default_theme':__FINALPATH__/config.json"
+        bind = "default_theme:__FINALPATH__/config.json"
