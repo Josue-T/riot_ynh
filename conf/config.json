@@ -24,10 +24,10 @@
     ],
     "bug_report_endpoint_url": "https://element.io/bugreports/submit",
     "defaultCountryCode": "GB",
-    "showLabsSettings": false,
+    "showLabsSettings": __SHOW_LABS__,
     "features": { },
     "default_federate": true,
-    "default_theme": "light",
+    "default_theme": "__DEFAULT_THEME__",
     "roomDirectory": {
         "servers": [
             "matrix.org"
