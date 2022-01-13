@@ -7,7 +7,7 @@ name = "Element configuration"
     name = "Server Configuration"
 
         [main.config.default_home_server]
-        ask = "Choose a default home server"
+        ask = "Choose a home server"
         type = "string"
         default = "matrix.org"
         bind = ":__FINALPATH__/config.json"
@@ -21,4 +21,4 @@ name = "Element configuration"
         ask = "Choose a theme"
         type = "select"
         choices = ["light", "dark"]
-        bind = "default_theme:__FINALPATH__/config.json"
+        bind = ":__FINALPATH__/config.json"
