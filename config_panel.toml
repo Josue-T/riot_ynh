@@ -1,0 +1,13 @@
+version = "1.0"
+
+[main]
+name = "Element configuration"
+
+    [main.config]
+    name = "Home server Configuration"
+
+        [main.config.default_home_server]
+        ask = "Choose a default home server"
+        type = "string"
+        default = "matrix.org"
+        bind = ":__FINALPATH__/config.json"
