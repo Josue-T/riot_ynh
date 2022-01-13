@@ -46,7 +46,13 @@ ynh_abort_if_errors
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression --message="Ensuring downward compatibility..." --time --weight=1
+ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
+
+# If enable_labs doesn't exist, create it
+if [ -z "$default_home_server" ]; then
+	default_home_server="matrix.org"
+	ynh_app_setting_set --app=$app --key=default_home_server --value=$default_home_server
+fi
 
 # If enable_labs doesn't exist, create it
 if [ -z "$enable_labs" ]; then
