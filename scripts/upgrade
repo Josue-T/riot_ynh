@@ -50,7 +50,7 @@ ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
 # If default_home_server doesn't exist, create it
 if [ -z "$default_home_server" ]; then
-	default_home_server="matrix.org"
+	default_home_server="https://matrix.org"
 	ynh_app_setting_set --app=$app --key=default_home_server --value=$default_home_server
 fi
 
