@@ -56,7 +56,7 @@ fi
 
 # If enable_labs doesn't exist, create it
 if [ -z "$enable_labs" ]; then
-	enable_labs="true"
+	enable_labs="1"
 	ynh_app_setting_set --app=$app --key=enable_labs --value=$enable_labs
 fi
 

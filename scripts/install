@@ -28,7 +28,7 @@ default_home_server=$YNH_APP_ARG_DEFAULT_HOME_SERVER
 
 app=$YNH_APP_INSTANCE_NAME
 
-enable_labs="true"
+enable_labs="1"
 default_theme="light"
 
 #=================================================
