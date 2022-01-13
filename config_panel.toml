@@ -6,12 +6,6 @@ name = "Element configuration"
     [main.config]
     name = "Server Configuration"
 
-        [main.config.default_home_server]
-        ask = "Choose a default home server"
-        type = "string"
-        default = "matrix.org"
-        bind = "'base_url':__FINALPATH__/config.json"
-
         [main.config.enable_labs]
         ask = "Enable labs settings"
         type = "boolean"
