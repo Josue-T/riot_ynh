@@ -46,8 +46,8 @@
 					"en": "Choose a default home server",
 					"fr": "Choisissez un serveur par défault"
 				},
-				"example": "https://my-own-homeserver.tld",
-				"default": "https://matrix.org"
+				"example": "my-own-homeserver.tld",
+				"default": "matrix-client.matrix.org"
 			},
 			{
 				"name": "is_public",
