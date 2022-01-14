@@ -8,6 +8,6 @@ name = "Element configuration"
 
         [main.config.default_home_server]
         ask = "Choose a home server"
-        type = "string"
-        default = "matrix-client.matrix.org"
+        type = "url"
+        default = "https://matrix-client.matrix.org"
         bind = "base_url:__FINALPATH__/config.json"

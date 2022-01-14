@@ -41,13 +41,13 @@
 			},
 			{
 				"name": "default_home_server",
-				"type": "string",
+				"type": "url",
 				"ask": {
 					"en": "Choose a default home server",
 					"fr": "Choisissez un serveur par défault"
 				},
-				"example": "my-own-homeserver.tld",
-				"default": "matrix-client.matrix.org"
+				"example": "https://my-own-homeserver.tld",
+				"default": "https://matrix-client.matrix.org"
 			},
 			{
 				"name": "is_public",
