@@ -1,7 +1,7 @@
 {
     "default_server_config": {
         "m.homeserver": {
-            "base_url": "https://__DEFAULT_HOME_SERVER__",
+            "base_url": "__DEFAULT_HOME_SERVER__",
             "server_name": "matrix.org"
         },
         "m.identity_server": {

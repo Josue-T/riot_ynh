@@ -2,7 +2,7 @@
     ; Manifest
         domain="domain.tld"
         path="/path"
-        default_home_server="matrix-client.matrix.org"
+        default_home_server="https://matrix-client.matrix.org"
         is_public=1
     ; Checks
         pkg_linter=1
