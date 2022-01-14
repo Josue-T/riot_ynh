@@ -9,4 +9,3 @@ name = "Element configuration"
         [main.config.default_home_server]
         ask = "Choose a home server"
         type = "string"
-        bind = "base_url:__FINALPATH__/config.json"
