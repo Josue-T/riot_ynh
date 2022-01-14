@@ -20,8 +20,6 @@ domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 default_home_server=$(ynh_app_setting_get --app=$app --key=default_home_server)
-enable_labs=$(ynh_app_setting_get --app=$app --key=enable_labs)
-default_theme=$(ynh_app_setting_get --app=$app --key=default_theme)
 
 #=================================================
 # CHECK VERSION
@@ -50,20 +48,8 @@ ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
 # If default_home_server doesn't exist, create it
 if [ -z "$default_home_server" ]; then
-	default_home_server="https://matrix.org"
+	default_home_server="matrix-client.matrix.org"
 	ynh_app_setting_set --app=$app --key=default_home_server --value=$default_home_server
-fi
-
-# If enable_labs doesn't exist, create it
-if [ -z "$enable_labs" ]; then
-	enable_labs="1"
-	ynh_app_setting_set --app=$app --key=enable_labs --value=$enable_labs
-fi
-
-# If default_theme doesn't exist, create it
-if [ -z "$default_theme" ]; then
-	default_theme="light"
-	ynh_app_setting_set --app=$app --key=default_theme --value=$default_theme
 fi
 
 # Cleaning legacy permissions

@@ -8,17 +8,6 @@ name = "Element configuration"
 
         [main.config.default_home_server]
         ask = "Choose a home server"
-        type = "url"
-        default = "https://matrix.org"
-        bind = "__FINALPATH__/config.json"
-
-        [main.config.enable_labs]
-        ask = "Enable labs settings"
-        type = "boolean"
-        bind = "__FINALPATH__/config.json"
-
-        [main.config.default_theme]
-        ask = "Choose a theme"
-        type = "select"
-        choices = ["light", "dark"]
+        type = "string"
+        default = "matrix-client.matrix.org"
         bind = "__FINALPATH__/config.json"

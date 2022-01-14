@@ -28,9 +28,6 @@ default_home_server=$YNH_APP_ARG_DEFAULT_HOME_SERVER
 
 app=$YNH_APP_INSTANCE_NAME
 
-enable_labs="1"
-default_theme="light"
-
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
@@ -50,8 +47,6 @@ ynh_script_progression --message="Storing installation settings..." --weight=1
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
 ynh_app_setting_set --app=$app --key=default_home_server --value=$default_home_server
-ynh_app_setting_set --app=$app --key=enable_labs --value=$enable_labs
-ynh_app_setting_set --app=$app --key=default_theme --value=$default_theme
 
 #=================================================
 # CREATE DEDICATED USER
