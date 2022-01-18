@@ -8,7 +8,7 @@ name = "Element configuration"
 
         [main.config.default_home_server]
         ask = "Choose a home server"
-        type = "url"
+        type = "domain"
         default = "https://matrix-client.matrix.org"
         pattern.regexp = '^https://'
         bind = "base_url:__FINALPATH__/config.json"
