@@ -66,11 +66,8 @@ echo "Handling asset at $asset_url"
 # Here we base the source file name upon a unique keyword in the assets url (admin vs. update)
 # Leave $src empty to ignore the asset
 case $asset_url in
-  *"admin"*)
+  *"element-"*".tar.gz")
     src="app"
-    ;;
-  *"update"*)
-    src="app-upgrade"
     ;;
   *)
     src=""
@@ -105,7 +102,6 @@ SOURCE_SUM=$checksum
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=$extension
 SOURCE_IN_SUBDIR=true
-SOURCE_FILENAME=
 EOT
 echo "... conf/$src.src updated"
 
