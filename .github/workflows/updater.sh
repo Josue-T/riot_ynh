@@ -102,6 +102,7 @@ SOURCE_SUM=$checksum
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=$extension
 SOURCE_IN_SUBDIR=true
+SOURCE_FILENAME=
 EOT
 echo "... conf/$src.src updated"
 
