@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/vector-im/element-web/releases/download/v1.10.13/element-v1.10.13.tar.gz
-SOURCE_SUM=e2a885de60e3a0b945927ced89fdb68c72a80c5f7f181014d7eb09d8e9a7b2ff
+SOURCE_URL=https://github.com/vector-im/element-web/releases/download/v1.10.14/element-v1.10.14.tar.gz
+SOURCE_SUM=1251b2d25c6195f9fef2283e0b9cc93e7a7bedbb13119d6e7d14331d8fd6d650
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
