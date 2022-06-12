@@ -20,6 +20,7 @@ domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 default_home_server=$(ynh_app_setting_get --app=$app --key=default_home_server)
+welcome_background_url=$(ynh_app_setting_get --app=$app --key=welcome_background_url)
 
 #=================================================
 # CHECK VERSION
@@ -50,6 +51,12 @@ ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 if [ -z "$default_home_server" ]; then
 	default_home_server="https://matrix-client.matrix.org"
 	ynh_app_setting_set --app=$app --key=default_home_server --value=$default_home_server
+fi
+
+# If welcome_background_url doesn't exist, create it
+if [ -z "$welcome_background_url" ]; then
+	welcome_background_url="https://matrix-client.matrix.org"
+	ynh_app_setting_set --app=$app --key=welcome_background_url --value=$welcome_background_url
 fi
 
 # Cleaning legacy permissions

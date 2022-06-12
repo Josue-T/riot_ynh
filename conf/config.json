@@ -33,6 +33,9 @@
             "matrix.org"
         ]
     },
+    "branding": {
+      "welcome_background_url": "--WELCOME_BACKGROUND_URL__",
+   },
     "piwik": {
         "url": "https://piwik.riot.im/",
         "whitelistedHSUrls": ["https://matrix.org"],
