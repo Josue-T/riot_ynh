@@ -11,11 +11,4 @@ name = "Element configuration"
         type = "domain"
         default = "https://matrix-client.matrix.org"
         pattern.regexp = '^https://'
-        bind = "base_url:__FINALPATH__/config.json"
-
-        [main.config.welcome_background_url]
-        ask = "Welcome background URL"
-        type = "file"
-        accept = ".png, .jpg"
-        help = "When a string, the URL for the full-page image background of the login, registration, and welcome pages. This property can additionally be an array to have the app choose an image at random from the selections."
-        bind = "welcome_background_url:__FINALPATH__/config.json"
+        bind = "default_server_name:__FINALPATH__/config.json"
