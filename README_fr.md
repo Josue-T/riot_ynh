@@ -31,7 +31,7 @@ Element est un nouveau type d'application de messagerie. Vous choisissez où vos
 
 ### Prise en charge multi-utilisateurs
 
-Maintenant, cette application prend en charge le SSO. Si vous souhaitez utiliser le sso, vous devez définir le chemin d'accès au serveur domestique par défaut car votre serveur domestique est installé sur votre instance YunoHost.
+Cette application prend en charge le SSO. Si vous souhaitez utiliser le SSO, vous devez définir le chemin d'accès au serveur domestique par défaut car votre serveur domestique est installé sur votre instance YunoHost.
 
 ## Informations supplémentaires
 
@@ -46,16 +46,6 @@ accès à Element (ou à d'autres applications) en raison du partage du même do
 Nous avons mis en place des mesures d'atténuation grossières pour essayer de nous protéger contre ce
 situation, mais ce n'est toujours pas une bonne pratique de le faire en premier lieu. Voir
 https://github.com/vector-im/riot-web/issues/1977 pour plus de détails.
-
-### Migration à partir de l'ancien nom d'application "Riot"
-
-Comme cette application ne contient aucune donnée côté serveur, aucune migration n'a été effectuée pour migrer de "Riot" vers "Element".
-Il vous suffira donc de supprimer Riot et d'installer Element sur le même domaine (vous pouvez modifier le chemin) pour pouvoir conserver les données sur votre navigateur Web.
-Ainsi, le processus de migration vers l'élément est le suivant :
-
-1. Obtenez le domaine de "Riot": `yunohost app setting riot domain`
-2. Supprimer Riot : `yunohost app remove riot`
-3. Élément d'installation : `yunohost app install element`
 
 ## Documentations et ressources
 
