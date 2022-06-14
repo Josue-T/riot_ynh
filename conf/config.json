@@ -3,9 +3,6 @@
     "brand": "Element",
     "integrations_ui_url": "https://scalar.vector.im/",
     "integrations_rest_url": "https://scalar.vector.im/api",
-    "hosting_signup_link": "https://element.io/matrix-services?utm_source=element-web&utm_medium=web",
-    "bug_report_endpoint_url": "https://element.io/bugreports/submit",
-    "uisi_autorageshake_app": "element-auto-uisi",
     "showLabsSettings": false,
     "roomDirectory": {
         "servers": [
