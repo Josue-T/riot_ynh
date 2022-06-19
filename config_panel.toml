@@ -8,7 +8,7 @@ name = "Element configuration"
 
         [main.config.default_home_server]
         ask = "Choose a home server"
-        type = "domain"
-        default = ""
-        help = "Choose your default Matrix server's domain name"
+        type = "string"
+        default = "matrix.org"
+        help = "Choose your default Matrix server's domain name. Default is matrix.org"
         bind = "default_server_name:__FINALPATH__/config.json"
