@@ -17,7 +17,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 Element is a new type of messaging app. You choose where your messages are stored, putting you in control of your data. It gives you access to the Matrix open network, so you can talk to anyone. Element provides a new level of security, adding cross-signed device verification to default end-to-end encryption.
 
-**Shipped version:** 1.10.14~ynh1
+**Shipped version:** 1.10.15~ynh1
 
 **Demo:** https://app.element.io/
 
@@ -31,7 +31,7 @@ Element is a new type of messaging app. You choose where your messages are store
 
 ### Multi-users support
 
-Now this application support the SSO. If you want to use the sso you need to define the path to the default homeserver as your homeserver witch is installed on your YunoHost instance.
+This application support the SSO. If you want to use the SSO, you need to define the path to the default homeserver as your homeserver witch is installed on your YunoHost instance.
 
 ## Additional informations
 
@@ -46,16 +46,6 @@ access to Element (or other apps) due to sharing the same domain.
 We have put some coarse mitigations into place to try to protect against this
 situation, but it's still not good practice to do it in the first place.  See
 https://github.com/vector-im/riot-web/issues/1977 for more details.
-
-### Migration from old app name "Riot"
-
-As this app don't contains any data on the server side no migration was made to migrate from "Riot" to "Element".
-So you just will need to remove Riot and install Element on the same domain (you can change the path) to be able to keep the data on your web browser.
-So the process to migrate to element is the following:
-
-1. Get the domain of "Riot": `yunohost app setting riot domain`
-2. Remove Riot: `yunohost app remove riot`
-3. Install Element: `yunohost app install element`
 
 ## Documentation and resources
 

@@ -15,11 +15,10 @@
         upgrade=1   from_commit=34d457d13e526997fddb8348650674a7db2247be
         backup_restore=1
         multi_instance=1
-        port_already_use=0
         change_url=1
 ;;; Upgrade options
     ; commit=Sep 13, 2021
         name=34d457d13e526997fddb8348650674a7db2247be
         manifest_arg=domain=DOMAIN&path=PATH&admin=USER&language=fr&is_public=1&password=pass&port=666&
 
-        
+    
