@@ -19,7 +19,6 @@ Element est un nouveau type d'application de messagerie. Vous choisissez où vos
 
 **Version incluse :** 1.11.4~ynh1
 
-
 **Démo :** https://app.element.io/
 
 ## Captures d'écran
